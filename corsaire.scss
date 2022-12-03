@@ -1,0 +1,230 @@
+@font-face {
+	font-family: 'BlackSans';
+	src: url(./Font/Rayken\ Free.otf);
+}
+@font-face {
+	font-family: 'Nighty';
+	src: url(./Font/Nightydemo.otf);
+}
+@font-face {
+    font-family: 'Estrella';
+    src: url(./Font/Estrella-Early.otf);
+}
+body{
+    width: 100vw;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}
+.back{
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+    display: flex;
+    position: relative;
+}
+.barre1{
+    position: absolute;
+    bottom: 0;
+    height: 0%;
+    width: 55%;
+    background-color: #629451;
+    animation: up-1 1s both;
+    z-index: 0;
+}
+
+.barre2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 0%;
+    width: 45%;
+    background-color: #E092D5;
+    animation: up-1 1.4s both;
+    z-index: 0;
+}
+.content{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 10;
+    .deco-1{
+        position: absolute;
+        bottom: 100%;
+        left:  0;
+        animation: deco-1 2s both;
+    }
+    .deco-2{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        right: 0;
+        height: 0%;
+        width: 45%;
+        animation: deco-2 2s both;
+    }
+    .beer{
+        position: absolute;
+        margin-top: auto;
+        margin-bottom: auto;
+        right:-100%;
+        top: 0;
+        bottom:  0;
+        text-align: center;
+        animation: image-1 2s both;
+    }
+    .texte{
+        display: block;
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        text-align: justify;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        margin-top: auto;
+        margin-bottom: auto;
+        animation: texte-1 2s both;
+    }
+    P{  
+        font-size: 17px;
+        font-family: Open Sans, sans-serif;
+    }
+    h1{
+        font-family: 'Nighty', sans-serif;
+	    font-size: 60px;
+    }
+    .amertume{
+        width: 400px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .fruite{
+        width: 400px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .malte{
+        width: 400px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .circle{
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 28px;
+        background: #E092D5;
+    }
+    .circle-vide{
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 28px;
+        border: solid 4px #E092D5;
+    }
+    .categorie{
+        font-size: 25px;
+        font-family: 'Nighty', sans-serif;
+    }
+}
+
+
+
+
+@keyframes up-1 {
+    0% {height: 0%;}
+    100% {height: 100%;}
+}
+@keyframes image-1 {
+    0% {right: -100%;}
+    100% {right: 20%;}
+}
+@keyframes texte-1 {
+    0% {left: -100%;}
+    100% {left: 20%;}
+}
+@keyframes button-1 {
+    0% {top: -40px;left: -40px;}
+    100% {top: 20px;left: 20px;}
+}
+@keyframes deco-1 {
+    0% {bottom: 100%;}
+    100% {bottom: 0%;}
+}
+@keyframes deco-2 {
+    0% {height: 0%;}
+    100% {height: 90%;}
+}
+$speed: 0.5s;
+
+.btn-flip{
+    top: -40px;
+    left: -40px;
+    opacity: 1;
+    outline: 0;
+    color: #944388;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Nighty';
+    text-transform: uppercase;
+    animation: button-1 2s both;
+    &:hover{
+        
+        &:after{
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+        }
+        
+        &:before{
+        opacity: 0;
+        transform: translateY(50%) rotateX(90deg);
+        }
+    }
+    
+    &:after{
+        top: 0;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        color: #944388;
+        display: block;
+        transition: $speed;
+        position: absolute;
+        background: #EEE;
+        content: attr(data-back);
+        transform: translateY(-50%) rotateX(90deg);
+    }
+    
+    &:before{
+        top: 0;
+        left: 0;
+        opacity: 1;
+        color: #EEE;
+        display: block;
+        padding: 0 30px;
+        line-height: 40px;
+        transition: $speed;
+        position: relative;
+        background: #944388;
+        content: attr(data-front);
+        transform: translateY(0) rotateX(0);
+    }
+}
